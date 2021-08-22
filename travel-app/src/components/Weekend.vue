@@ -1,12 +1,8 @@
 <template>
   <div>
-    <div class="recommend-title">周末游</div>
+    <div class="title">周末游</div>
     <ul>
-      <li
-        class="item border-bottom"
-        v-for="item in recommendList"
-        :key="item.id"
-      >
+      <li class="item border-bottom" v-for="item in list" :key="item.id">
         <div class="item-img-wrapper">
           <img :src="item.imgUrl" alt="" class="item-img" />
         </div>
@@ -22,47 +18,18 @@
 <script>
 export default {
   name: "HomeWeekend",
+  props: {
+    list: Array,
+  },
   data() {
-    return {
-      recommendList: [
-        {
-          id: "0001",
-          imgUrl:
-            "	https://imgs.qunarzz.com/vs_ceph_vcimg/79faa5a73731e84a7731db49d5baa91e.jpeg",
-          title: "大连圣亚海洋世界",
-          desc: "浪漫大连站，浪漫的海洋主题乐园",
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "	https://imgs.qunarzz.com/vs_ceph_vcimg/79faa5a73731e84a7731db49d5baa91e.jpeg",
-          title: "大连圣亚海洋世界",
-          desc: "浪漫大连站，浪漫的海洋主题乐园",
-        },
-        {
-          id: "0003",
-          imgUrl:
-            "	https://imgs.qunarzz.com/vs_ceph_vcimg/79faa5a73731e84a7731db49d5baa91e.jpeg",
-          title: "大连圣亚海洋世界",
-          desc: "浪漫大连站，浪漫的海洋主题乐园",
-        },
-        {
-          id: "0004",
-          imgUrl:
-            "	https://imgs.qunarzz.com/vs_ceph_vcimg/79faa5a73731e84a7731db49d5baa91e.jpeg",
-          title: "大连圣亚海洋世界",
-          desc: "浪漫大连站，浪漫的海洋主题乐园",
-        },
-      ],
-    };
+    return {};
   },
 };
 </script>
 
 <style lang="stylus" scoped>
 @import '~@/assets/style/mixins.styl'
-.recommend-title
-  margin-top 0.2rem
+.title
   line-height 0.8rem
   background-color #eee
   text-indent 0.2rem
