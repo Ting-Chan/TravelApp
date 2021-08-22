@@ -379,3 +379,9 @@ p {
 button {
     border: none;
 }
+
+input {
+    border: none;
+    padding: 0;
+    outline: none;
+}
