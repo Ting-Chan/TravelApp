@@ -65,6 +65,7 @@ export default {
   },
   updated() {
     this.startY = this.$refs["A"][0].offsetTop;
+    console.log("updata", this.startY);
   },
 };
 </script>
