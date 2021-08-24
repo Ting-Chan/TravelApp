@@ -5,7 +5,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button">{{ this.city }}</div>
           </div>
         </div>
       </div>
@@ -13,7 +13,9 @@
         <div class="title">热门城市</div>
         <div class="button-list">
           <div class="button-wrapper" v-for="item in hotCities" :key="item.id">
-            <div class="button">{{ item.name }}</div>
+            <div class="button" @click="handleClickCity(item.name)">
+              {{ item.name }}
+            </div>
           </div>
         </div>
       </div>
@@ -24,6 +26,7 @@
             class="item border-bottom"
             v-for="innerItem of item"
             :key="innerItem.id"
+            @click="handleClickCity(innerItem.name)"
           >
             {{ innerItem.name }}
           </div>
@@ -34,6 +37,7 @@
 </template>
 
 <script>
+import { mapState, mapMutation } from "vuex";
 import BScroll from "better-scroll";
 import axios from "axios";
 export default {
@@ -46,6 +50,9 @@ export default {
     return {
       cities: {},
     };
+  },
+  computed: {
+    ...mapState(["city"]),
   },
   methods: {
     handleGetCityListSucc(res) {
@@ -61,6 +68,11 @@ export default {
     getCityList() {
       axios.get("/api/city.json").then(this.handleGetCityListSucc);
     },
+    handleClickCity(city) {
+      this.$store.dispatch("changeCity", city);
+      this.$router.push("/");
+    },
+    ...mapMutation(["changeCity"]),
   },
   created() {
     this.getCityList();
