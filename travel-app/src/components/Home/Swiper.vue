@@ -37,7 +37,7 @@ export default {
 .wrapper
   width 100%
   height 0
-  padding-bottom 53.87%
+  padding-bottom 31%
   overflow hidden
   background-color #ccc
   .swiper-img

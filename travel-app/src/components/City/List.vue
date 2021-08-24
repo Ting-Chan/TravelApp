@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { mapState, mapMutation } from "vuex";
+import { mapState, mapMutations } from "vuex";
 import BScroll from "better-scroll";
 import axios from "axios";
 export default {
@@ -72,7 +72,7 @@ export default {
       this.$store.dispatch("changeCity", city);
       this.$router.push("/");
     },
-    ...mapMutation(["changeCity"]),
+    ...mapMutations(["changeCity"]),
   },
   created() {
     this.getCityList();
