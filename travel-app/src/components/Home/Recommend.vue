@@ -2,7 +2,12 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item in list" :key="item.id">
+      <li
+        class="item border-bottom"
+        v-for="item in list"
+        :key="item.id"
+        @click="toDetail(item.id)"
+      >
         <img :src="item.imgUrl" alt="" class="item-img" />
         <div class="item-info">
           <p class="item-title">{{ item.title }}</p>
@@ -22,6 +27,11 @@ export default {
   },
   data() {
     return {};
+  },
+  methods: {
+    toDetail(id) {
+      this.$router.push("/detail/" + id);
+    },
   },
 };
 </script>
