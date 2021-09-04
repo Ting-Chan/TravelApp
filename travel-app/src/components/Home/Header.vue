@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import {mapState} from "vuex";
+import { mapState } from "vuex";
 export default {
   name: "HomeHeader",
   props: {},
@@ -38,6 +38,7 @@ export default {
   line-height $headerHeight
   background-color $bgColor
   color white
+  font-size 0.32rem
   .header-left
     width 0.64rem
     text-align center
